@@ -1,5 +1,5 @@
 # German nouns
-A comma seperated list of ~~13~~ 35 thousand German nouns and their grammatical number (*singular/plural*) and gender (*male/female/neuter*). All nouns are in *[nominative case](https://en.wikipedia.org/wiki/Nominative_case)*.
+A comma seperated list of 35 thousand German nouns and their grammatical number (*singular/plural*) and gender (*male/female/neuter*). All nouns are in *[nominative case](https://en.wikipedia.org/wiki/Nominative_case)*.
 
 Compiled from *[WiktionaryDE](https://de.wiktionary.org)* and *[Vollformenlexikon](http://www.danielnaber.de/morphologie/)*.
 
