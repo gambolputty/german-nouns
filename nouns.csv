@@ -1,17 +1,3 @@
-"1,2,3-propentricarbonsäure",—,f
-"1,2-benzoldicarbonsäure",—,f
-"1,2-propandiol",—,n
-"1,4-benzoldicarbonsäure",—,f
-"1,4-butandiol",—,n
-"2,3,4,5,6-pentahydroxyhexansäure",—,f
-"2,3-dihydroxybernsteinsäure",—,f
-"2,3-dihydroxybutandisäure",—,f
-"2,4,6-trihydroxypyrimidin",—,n
-"2,4,6-trinitrophenol",—,n
-"2,6,8-trihydroxypurin",—,n
-"3,4,5-trihydroxybenzoesäure",—,f
-"abieta-7,14-dien-19-carbonsäure",—,f
-"n,n’-malonylharnstoff",—,m
 ,westkarpaten,f
 -,actiniden,m
 1-benzolethansäure,—,f
@@ -106,7 +92,6 @@
 8-stunden-tag,8-stunden-tage,m
 8-uhr-vorstellung,8-uhr-vorstellungen,f
 8-uhr-zug,8-uhr-züge,m
-a,a,n
 a-a,-,n
 a-achse,a-achsen,f
 a-cappella-chor,a-cappella-chöre,m
@@ -375,9 +360,10 @@ abgeber,abgeber,m
 abgeklärtheit,-,f
 abgeltungssteuer,abgeltungssteuern,f
 abgeltungsteuer,abgeltungsteuern,f
-abgeordnete,abgeordneten,f
+abgeordnete,abgeordnete,f
 abgeordnetenbestechung,abgeordnetenbestechungen,f
 abgeordnetenhaus,abgeordnetenhäuser,n
+abgeordneter,abgeordnete,m
 abgereche,—,n
 abgesang,abgesänge,m
 abglanz,—,m
@@ -2005,7 +1991,8 @@ anger,anger,m
 angermünder,angermünder,m
 angeschuldigte,angeschuldigten,f
 angesicht,angesichter,n
-angestellte,angestellten,f
+angestellte,angestellte,f
+angestellter,angestellte,m
 angewohnheit,angewohnheiten,f
 angiografie,angiografien,f
 angiographie,angiographien,f
@@ -2648,6 +2635,7 @@ arbeitslosenrate,arbeitslosenraten,f
 arbeitslosigkeit,—,f
 arbeitsministerin,arbeitsministerinnen,f
 arbeitsplatte,arbeitsplatten,f
+arbeitsplatz,arbeitsplätze,m
 arbeitsrecht,arbeitsrechte,n
 arbeitssitzung,arbeitssitzungen,f
 arbeitsuche,arbeitsuchen,f
@@ -3925,7 +3913,6 @@ azurit,—,m
 azymit,azymiten,m
 azymon,azyma,n
 aöde,aöden,m
-b,b,n
 b-dur,—,n
 b-führerschein,b-führerscheine,m
 b-moll,—,n
@@ -4925,6 +4912,8 @@ beschwernis,beschwernisse,f
 beschwörer,beschwörer,m
 beschwörung,beschwörungen,f
 beschädigung,beschädigungen,f
+beschäftigte,beschäftigte,f
+beschäftigter,beschäftigte,m
 beschäftigung,beschäftigungen,f
 beschäler,beschäler,m
 beschälseuche,beschälseuchen,f
@@ -6697,8 +6686,6 @@ büttenrede,büttenreden,f
 büttenredner,büttenredner,m
 büttenrednerin,büttenrednerinnen,f
 büx,büxen,f
-c++,—,n
-c,c,n
 c-dur,—,n
 c-kommando,c-kommandos,n
 c-moll,—,n
@@ -7294,6 +7281,7 @@ consommé,consommés,f
 consultant,consultants,f
 consulting,—,n
 container,container,m
+containerschiff,containerschiffe,n
 contenance,—,f
 content,contents,m
 content-mafia,—,f
@@ -7485,7 +7473,6 @@ cäsar,cäsaren,m
 cäsium,—,n
 cölom,cölome,n
 cüpli,cüpli,n
-d,d,n
 d-day,d-days,m
 d-dur,—,n
 d-mark,d-mark,f
@@ -7802,7 +7789,6 @@ delegat,delegaten,m
 delegation,delegationen,f
 delegationsleiterin,delegationsleiterinnen,f
 delegatura,—,f
-delegierte,delegierten,f
 deletion,deletionen,f
 delfin,delfine,m
 delfinarium,delfinarien,n
@@ -8087,6 +8073,8 @@ dezision,dezisionen,f
 dezisionismus,—,m
 dezisionist,dezisionisten,m
 dezitonne,dezitonnen,f
+de­le­gier­te,delegierten,m
+de­le­gier­ter,delegierte,m
 dfb,—,m
 dfb-pokal,dfb-pokale,m
 dfü-netzwerk,dfü-netzwerke,n
@@ -9098,7 +9086,6 @@ düsseldorferin,düsseldorferinnen,f
 düsterbock,düsterböcke,m
 düsternis,düsternisse,f
 dōjinshi,dōjinshi,m
-e,e,n
 e-auto,e-autos,n
 e-bike,e-bikes,n
 e-book,e-books,n
@@ -11007,7 +10994,6 @@ eßproblem,eßprobleme,n
 eßstörung,eßstörungen,f
 eßverhalten,eßverhalten,n
 eßzimmer,eßzimmer,n
-f,f,n
 f-dur,—,n
 f-faktor,f-faktoren,m
 f-loch,f-löcher,n
@@ -11194,6 +11180,7 @@ familienauto,familienautos,n
 familienchronik,familienchroniken,f
 familienglück,—,n
 familienministerin,familienministerinnen,f
+familienmitglied,familienmitglieder,n
 familienschach,familienschachs,n
 familientragödie,familientragödien,f
 fan,fans,m
@@ -11826,7 +11813,6 @@ fischbrühe,fischbrühen,f
 fischchen,fischchen,n
 fischen,-,n
 fischenz,fischenzen,f
-fischer&nbsp;random&nbsp;chess,—,n
 fischer,fischer,m
 fischer-kontroverse,—,f
 fischerei,fischereien,f
@@ -12407,7 +12393,7 @@ freite,—,f
 freiumschlag,freiumschläge,m
 freiung,freiungen,f
 freiwerber,freiwerber,m
-freiwillige,freiwilligen,f
+freiwilliger,freiwilligen,m
 freiwurf,freiwürfe,m
 freiwurflinie,freiwurflinien,f
 freizeit,freizeiten,f
@@ -12899,7 +12885,6 @@ füsillade,füsilladen,f
 fütterung,fütterungen,f
 füßchen,füßchen,n
 füßling,füßlinge,m
-g,g,n
 g-dur,—,n
 g-moll,—,n
 g-string,g-strings,m
@@ -13069,7 +13054,7 @@ gasplanet,gasplaneten,m
 gasriese,gasriesen,m
 gasschlauch,gasschläuche,m
 gasse,gassen,f
-gast,gasten,m
+gast,gäste,m
 gastarbeiterin,gastarbeiterinnen,f
 gastfreundlichkeit,gastfreundlichkeiten,f
 gastgeber,gastgeber,m
@@ -15004,7 +14989,6 @@ güterabwägung,—,f
 gütertransport,gütertransporte,m
 gütetermin,gütetermine,m
 gütigkeit,gütigkeiten,f
-h,h,n
 h-dur,—,n
 h-moll,—,n
 haar,—,f
@@ -16196,7 +16180,6 @@ hohn,—,m
 hokkaido,hokkaidos,m
 hokuspokus,—,m
 holarktis,—,f
-hold'em,—,n
 holde,holden,f
 holder,holder,m
 holding,holdings,f
@@ -16759,7 +16742,6 @@ hütlein,hütlein,n
 hütsche,hütschen,f
 hütte,hütten,f
 hüttner,hüttner,m
-i,i,n
 i-dötzchen,i-dötzchen,n
 i-propanol,—,n
 i-punkt,i-punkte,m
@@ -17587,7 +17569,6 @@ ivrith,—,n
 iwan,iwans,m
 iwrit,—,n
 iwrith,—,n
-j,j,n
 ja,ja,n
 jab,jabs,m
 jaborandiblatt,jaborandiblätter,n
@@ -17999,10 +17980,8 @@ jüngstenrecht,jüngstenrechte,n
 jürük,jürüks,m
 jütländer,jütländer,m
 j’accuse,—,f
-k,k,n
 k-frage,k-fragen,f
 k-pop,—,m
-k.-u.-k.-monarchie,—,f
 k2,—,m
 kaaba,—,f
 kab,kab,m
@@ -20636,7 +20615,6 @@ küsterei,küstereien,f
 küßchen,küßchen,n
 küßlein,küßlein,n
 kōan,kōans,n
-l,l,n
 la-ola-welle,la-ola-wellen,f
 la-tène-zeit,-,f
 laabla,laablas,n
@@ -21977,7 +21955,6 @@ lüster,lüster,m
 lüsterklemme,lüsterklemmen,f
 lüstling,lüstlinge,m
 lützelsoon,-,m
-m,m,n
 m-theorie,-,f
 maar,maare,n
 maas,—,f
@@ -23815,7 +23792,6 @@ mustang,mustangs,m
 muster,muster,n
 musterschülerin,musterschülerinnen,f
 musterung,musterungen,f
-mut'a-ehe,mut'a-ehen,f
 mut,—,m
 mutagen,mutagene,n
 mutagenese,mutagenesen,f
@@ -24102,7 +24078,6 @@ müttergenesungswerk,—,n
 mütterlein,mütterlein,n
 mütze,mützen,f
 müßiggang,—,m
-n,n,n
 n-acetylneuraminsäure,—,f
 n-amylalkohol,—,m
 n-butylcarbinol,—,n
@@ -24997,6 +24972,7 @@ nordostseekanal,—,m
 nordpunkt,nordpunkte,m
 nordrhein-westfale,nordrhein-westfalen,m
 nordrhein-westfälin,nordrhein-westfälinnen,f
+nordstaatler,nordstaatler,m
 nordstern,,m
 nordteil,nordteile,m
 nordterritorium,—,n
@@ -25244,7 +25220,6 @@ nüster,nüstern,f
 nützlichkeit,—,f
 nützling,nützlinge,m
 nüßchen,nüßchen,n
-o,o,n
 o-ton,o-töne,m
 oas,—,f
 oase,oasen,f
@@ -25253,7 +25228,7 @@ obacht,—,f
 obatzte,obatzten,m
 obazda,obazden,m
 obdach,—,n
-obdachlose,obdachlosen,f
+obdachlose,obdachlose,f
 obdachlosenheim,obdachlosenheime,n
 obdachlosigkeit,obdachlosigkeiten,f
 obduktion,obduktionen,f
@@ -25885,7 +25860,6 @@ ozeanienmeisterschaft,ozeanienmeisterschaften,f
 ozelot,ozelots,m
 ozon,—,n
 ozonator,ozonatoren,m
-p,p,n
 pa,pas,n
 paar,paare,n
 paarhufer,paarhufer,m
@@ -27220,6 +27194,7 @@ plus,plus,n
 plusgrad,plusgrade,m
 plusminuszeichen,plusminuszeichen,n
 pluspol,pluspole,m
+pluspunkt,pluspunkte,m
 plusquamperfekt,plusquamperfekte,n
 pluszeichen,pluszeichen,n
 pluto,—,m
@@ -28313,7 +28288,6 @@ pürierstab,pürierstäbe,m
 pütt,pütts,m
 pütz,pützen,f
 pütze,pützen,f
-q,q,n
 q-wende,q-wenden,f
 qi,—,n
 qindar,qindarka,m
@@ -28531,7 +28505,6 @@ quäntchen,quäntchen,n
 quästor,quästoren,m
 quästorier,quästorier,m
 quästur,quästuren,f
-r,r,n
 raa,raaen,f
 raab,—,f
 rabatt,rabatte,m
@@ -29096,7 +29069,8 @@ reiseleiter,reiseleiter,m
 reiseleiterin,reiseleiterinnen,f
 reiselord,reiselords,m
 reisen,—,n
-reisende,reisenden,f
+reisende,reisende,f
+reisender,reisende,m
 reisescheck,reiseschecks,m
 reiseveranstalterin,reiseveranstalterinnen,f
 reisig,—,n
@@ -29675,7 +29649,6 @@ romagna,—,f
 roman,romane,m
 romancier,romanciers,m
 romandie,—,f
-romane,romanen,m
 romanesco,-,m
 romanik,—,f
 romanisierung,romanisierungen,f
@@ -30046,7 +30019,6 @@ rüstzeug,rüstzeuge,n
 rütli,—,n
 rüttelfalke,rüttelfalken,m
 rüttelflasche,rüttelflaschen,f
-s,s,n
 s-bahn,s-bahnen,f
 s-bahnhof,s-bahnhöfe,m
 s-kurve,s-kurven,f
@@ -34761,7 +34733,6 @@ süßware,süßwaren,f
 süßwarenfabrik,süßwarenfabriken,f
 süßwasserzierfisch,süßwasserzierfische,m
 süßwein,süßweine,m
-t,t,n
 t-bone-steak,t-bone-steaks,n
 t-butanol,—,n
 t-eisen,t-eisen,n
@@ -36346,6 +36317,7 @@ turnhemd,turnhemden,n
 turnhose,turnhosen,f
 turnier,turniere,n
 turnierreiterin,turnierreiterinnen,f
+turniersieg,turniersiege,m
 turniersiegerin,turniersiegerinnen,f
 turnierspielerin,turnierspielerinnen,f
 turnlehrer,turnlehrer,m
@@ -36486,7 +36458,6 @@ tütchen,tütchen,n
 tüte,tüten,f
 tüv,tüv,m
 tüv-plakette,tüv-plaketten,f
-u,u,n
 u-bahn,u-bahnen,f
 u-bahn-bau,—,m
 u-bahnhof,u-bahnhöfe,m
@@ -37120,7 +37091,6 @@ uwarowit,uwarowite,m
 uz,uze,m
 uzerei,uzereien,f
 uzi,uzis,f
-v,v,n
 v-ausschnitt,v-ausschnitte,m
 v-stil,—,m
 v-zeichen,v-zeichen,n
@@ -38409,7 +38379,6 @@ völlerei,völlereien,f
 völuspá,-,f
 völva,völvur,f
 vöner,vöner,m
-w,w,n
 w-boson,w-bosonen,n
 w-frage,w-fragen,f
 w-wort,w-wörter,n
@@ -39645,7 +39614,6 @@ wüstenschiff,wüstenschiffe,n
 wüstling,wüstlinge,m
 wüstung,wüstungen,f
 wüterich,wüteriche,m
-x,x,n
 x-einheit,x-einheiten,f
 x-haken,x-haken,m
 x-strahl,x-strahlen,m
@@ -39737,7 +39705,6 @@ xylospongium,xylospongien,n
 xylothek,xylotheken,f
 xystos,xysten,m
 xystus,xysti,m
-y,ys,n
 y-achse,y-achsen,f
 yacht,yachten,f
 yachtclub,yachtclubs,m
@@ -39816,7 +39783,6 @@ yurumi,yurumis,m
 ywca,—,f
 yärb,yärbe,m
 yürük,yürüks,m
-z,z,n
 z-9-octadecensäure,—,f
 z-boson,z-bosonen,n
 zabaglione,zabagliones,f
@@ -40747,9 +40713,6 @@ zürgelbaum,zürgelbäume,m
 züricher,züricher,m
 züricherin,züricherinnen,f
 złoty,złotys,m
-{{<includeonly>subst:</includeonly>pagename,,m
-ß,ß,n
-ä,ä,n
 äbtissin,äbtissinnen,f
 ächtung,ächtungen,f
 ächzen,,n
@@ -40838,7 +40801,6 @@ złoty,złotys,m
 ås,åsar,m
 élysée-palast,—,m
 île-de-france,—,f
-ö,ö,n
 öamtc,—,m
 ödem,ödeme,n
 ödipuskomplex,-,m
@@ -40899,7 +40861,6 @@ złoty,złotys,m
 österreicherin,österreicherinnen,f
 ötzi,—,m
 öömrang,—,n
-ü,ü,n
 ü-30-party,ü-30-partys,f
 ü-ei,ü-eier,n
 ü-wagen,ü-wagen,m
@@ -41035,7 +40996,6 @@ złoty,złotys,m
 čssr,—,f
 œil-de-bœuf,—,n
 œuvre,œuvres,n
-ſ,ſ,n
 α-tolylsäure,—,f
 α-zerfall,α-zerfälle,m
 β-ketobuttersäure,β-ketobuttersäuren,f
