@@ -99,7 +99,7 @@ def parse_page(text):
                                     form = stamm + u'r'
                                 elif genus == 'n':
                                     form = stamm + u'm'
-                                found_word['dativ singular stark'] = stamm + u'n'
+                                found_word['dativ singular stark'] = form
                             if 'dativ plural stark' not in keys and kein_plural is False:
                                 found_word['dativ plural stark'] = stamm + u'n'
                             if 'akkusativ singular stark' not in keys and kein_singular is False:
