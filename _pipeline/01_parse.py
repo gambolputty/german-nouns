@@ -33,13 +33,13 @@ def parse_page(text):
         if re.match(r'^=== ?\{\{Wortart', chunk) is not None:
             word_found = True
             found_word = {
-                'Wortart': [],
-                'Kompositum': '',
+                'wortart': [],
+                'kompositum': '',
             }
             # wortart
             for template in mwparserfromhell.parse(chunk).filter_templates():
                 if template.name == 'Wortart':
-                    found_word['Wortart'].extend([unicode(x) for x in template.params if x != 'Deutsch'])
+                    found_word['wortart'].extend([unicode(x) for x in template.params if x != 'Deutsch'])
 
             continue
 
@@ -54,32 +54,135 @@ def parse_page(text):
                         if m is None:
                             continue
                         key = m.group(1).strip().title()
-                        # key = re.sub(r' ?\d+$', '', key)
+                        key = key.lower()  # normalize
                         value = m.group(2)
                         value = value.replace('[[', '')
                         value = value.replace(']]', '')
                         found_word[key] = value
+
+                    if template.name.matches(u'Deutsch adjektivisch Übersicht'):
+                        """
+                        ergänze adjektivische Deklinationen, die von der Vorlage
+                        autom. ausgefüllt werden und nicht im Wikitext stehen
+                        """
+                        keys = found_word.keys()
+                        if 'stamm' in keys and 'genus' in keys and found_word['genus'] in ['f', 'm', 'n']:
+                            kein_singular = True if 'kein singular' in keys and found_word['kein singular'].lower() in ['1', 'ja'] else False
+                            kein_plural = True if 'kein plural' in keys and found_word['kein plural'].lower() in ['1', 'ja'] else False
+                            stamm = found_word['stamm']
+                            genus = found_word['genus']
+
+                            if 'nominativ singular stark' not in keys and kein_singular is False:
+                                found_word['nominativ singular stark'] = stamm
+                            if 'nominativ plural stark' not in keys and kein_plural is False:
+                                found_word['nominativ plural stark'] = stamm + u'n'
+                            if 'genitiv singular stark' not in keys and kein_singular is False:
+                                found_word['genitiv singular stark'] = stamm + u'n'
+                            if 'genitiv plural stark' not in keys and kein_plural is False:
+                                found_word['genitiv plural stark'] = stamm + u'n'
+                            if 'dativ singular stark' not in keys and kein_singular is False:
+                                found_word['dativ singular stark'] = stamm + u'n'
+                            if 'dativ plural stark' not in keys and kein_plural is False:
+                                found_word['dativ plural stark'] = stamm + u'n'
+                            if 'akkusativ singular stark' not in keys and kein_singular is False:
+                                if genus == 'm':
+                                    form = stamm + u'n'
+                                else:
+                                    form = stamm
+                                found_word['akkusativ singular stark'] = form
+                            if 'akkusativ plural stark' not in keys and kein_plural is False:
+                                found_word['akkusativ plural stark'] = stamm + u'n'
+
+                            if 'nominativ singular schwach' not in keys and kein_singular is False:
+                                if genus == 'm':
+                                    form = stamm + u'r'
+                                elif genus == 'f':
+                                    form = stamm
+                                elif genus == 'n':
+                                    form = stamm + u's'
+                                found_word['nominativ singular schwach'] = form
+                            if 'nominativ plural schwach' not in keys and kein_plural is False:
+                                found_word['nominativ plural schwach'] = stamm + u'n'
+                            if 'genitiv singular schwach' not in keys and kein_singular is False:
+                                found_word['genitiv singular schwach'] = stamm + u'n'
+                            if 'genitiv plural schwach' not in keys and kein_plural is False:
+                                found_word['genitiv plural schwach'] = stamm + u'n'
+                            if 'dativ singular schwach' not in keys and kein_singular is False:
+                                found_word['dativ singular schwach'] = stamm + u'n'
+                            if 'dativ plural schwach' not in keys and kein_plural is False:
+                                found_word['dativ plural schwach'] = stamm + u'n'
+                            if 'akkusativ singular schwach' not in keys and kein_singular is False:
+                                if genus == 'm':
+                                    form = stamm + u'n'
+                                elif genus == 'f':
+                                    form = stamm
+                                elif genus == 'n':
+                                    form = stamm + u's'
+                                found_word['akkusativ singular schwach'] = form
+                            if 'akkusativ plural schwach' not in keys and kein_plural is False:
+                                found_word['akkusativ plural schwach'] = stamm + u'n'
+
+                            if 'nominativ singular gemischt' not in keys and kein_singular is False:
+                                if genus == 'm':
+                                    form = stamm + u'r'
+                                elif genus == 'f':
+                                    form = stamm
+                                elif genus == 'n':
+                                    form = stamm + u's'
+                                found_word['nominativ singular gemischt'] = form
+                            if 'nominativ plural gemischt' not in keys and kein_plural is False:
+                                found_word['nominativ plural gemischt'] = stamm
+                            if 'genitiv singular gemischt' not in keys and kein_singular is False:
+                                if genus == 'm':
+                                    form = stamm + u'n'
+                                elif genus == 'f':
+                                    form = stamm + u'r'
+                                elif genus == 'n':
+                                    form = stamm + u'n'
+                                found_word['genitiv singular gemischt'] = form
+                            if 'genitiv plural gemischt' not in keys and kein_plural is False:
+                                found_word['genitiv plural gemischt'] = stamm + u'r'
+                            if 'dativ singular gemischt' not in keys and kein_singular is False:
+                                if genus == 'm':
+                                    form = stamm + u'm'
+                                elif genus == 'f':
+                                    form = stamm + u'r'
+                                elif genus == 'n':
+                                    form = stamm + u'm'
+                                found_word['dativ singular gemischt'] = form
+                            if 'dativ plural gemischt' not in keys and kein_plural is False:
+                                found_word['dativ plural gemischt'] = stamm + u'n'
+                            if 'akkusativ singular gemischt' not in keys and kein_singular is False:
+                                if genus == 'm':
+                                    form = stamm + u'n'
+                                elif genus == 'f':
+                                    form = stamm
+                                elif genus == 'n':
+                                    form = stamm + u's'
+                                found_word['akkusativ singular gemischt'] = form
+                            if 'akkusativ plural gemischt' not in keys and kein_plural is False:
+                                found_word['akkusativ plural gemischt'] = stamm
 
             # kompositum?
             sect_herkunft = re.search(r'(?:\{\{Herkunft\}\})((?:\n.+)+)', chunk)
             if sect_herkunft is not None:
                 clean = re.sub(r'[^\w\s]', '', sect_herkunft.group(1))
                 if re.search(r'kompositum +(aus|von|der substantive|bestehend aus|zusammensetzung|zusammengesetzt|zusammengezogen)', clean, re.I) is not None:
-                    found_word['Kompositum'] = 1
+                    found_word['kompositum'] = 1
 
             # append
             parsed_items.append(found_word)
 
     result = []
     for w in parsed_items:
-        if len(w.keys()) <= 2 and 'Kompositum' in w.keys() and 'Wortart' in w.keys():
+        if len(w.keys()) <= 2 and 'kompositum' in w.keys() and 'wortart' in w.keys():
             continue
-        if 'Substantiv' not in w['Wortart']:
+        if 'Substantiv' not in w['wortart']:
             continue
 
         new_item = w
-        distinct = list(set(new_item['Wortart']))
-        new_item['Wortart'] = u','.join(distinct)
+        distinct = list(set(new_item['wortart']))
+        new_item['wortart'] = u','.join(distinct)
         result.append(new_item)
         
     return result
@@ -96,87 +199,87 @@ if not os.path.isfile(csv_path):
     with open(csv_path, "wb") as f:
         w = unicodecsv.writer(f, delimiter=',', encoding='utf-8')
         header = [
-            # 'Id',
-            'Titel',
-            'Wortart',
-            'Kompositum',
-            'Genus',
+            # 'id',
+            'titel',
+            'wortart',
+            'kompositum',
+            'genus',
 
-            'Nominativ Singular',
-            'Nominativ Singular*',
-            'Nominativ Singular 1',
-            'Nominativ Singular 2',
-            'Nominativ Singular 3',
-            'Nominativ Singular 4',
-            'Nominativ Singular stark',
-            'Nominativ Singular schwach',
-            'Nominativ Singular gemischt',
-            'Nominativ Plural',
-            'Nominativ Plural*',
-            'Nominativ Plural 1',
-            'Nominativ Plural 2',
-            'Nominativ Plural 3',
-            'Nominativ Plural 4',
-            'Nominativ Plural stark',
-            'Nominativ Plural schwach',
-            'Nominativ Plural gemischt',
+            'nominativ singular',
+            'nominativ singular*',
+            'nominativ singular 1',
+            'nominativ singular 2',
+            'nominativ singular 3',
+            'nominativ singular 4',
+            'nominativ singular stark',
+            'nominativ singular schwach',
+            'nominativ singular gemischt',
+            'nominativ plural',
+            'nominativ plural*',
+            'nominativ plural 1',
+            'nominativ plural 2',
+            'nominativ plural 3',
+            'nominativ plural 4',
+            'nominativ plural stark',
+            'nominativ plural schwach',
+            'nominativ plural gemischt',
 
-            'Genitiv Singular',
-            'Genitiv Singular*',
-            'Genitiv Singular 1',
-            'Genitiv Singular 2',
-            'Genitiv Singular 3',
-            'Genitiv Singular 4',
-            'Genitiv Singular stark',
-            'Genitiv Singular schwach',
-            'Genitiv Singular gemischt',
-            'Genitiv Plural',
-            'Genitiv Plural*',
-            'Genitiv Plural 1',
-            'Genitiv Plural 2',
-            'Genitiv Plural 3',
-            'Genitiv Plural 4',
-            'Genitiv Plural stark',
-            'Genitiv Plural schwach',
-            'Genitiv Plural gemischt',
+            'genitiv singular',
+            'genitiv singular*',
+            'genitiv singular 1',
+            'genitiv singular 2',
+            'genitiv singular 3',
+            'genitiv singular 4',
+            'genitiv singular stark',
+            'genitiv singular schwach',
+            'genitiv singular gemischt',
+            'genitiv plural',
+            'genitiv plural*',
+            'genitiv plural 1',
+            'genitiv plural 2',
+            'genitiv plural 3',
+            'genitiv plural 4',
+            'genitiv plural stark',
+            'genitiv plural schwach',
+            'genitiv plural gemischt',
 
-            'Dativ Singular',
-            'Dativ Singular*',
-            'Dativ Singular 1',
-            'Dativ Singular 2',
-            'Dativ Singular 3',
-            'Dativ Singular 4',
-            'Dativ Singular stark',
-            'Dativ Singular schwach',
-            'Dativ Singular gemischt',
-            'Dativ Plural',
-            'Dativ Plural*',
-            'Dativ Plural 1',
-            'Dativ Plural 2',
-            'Dativ Plural 3',
-            'Dativ Plural 4',
-            'Dativ Plural stark',
-            'Dativ Plural schwach',
-            'Dativ Plural gemischt',
+            'dativ singular',
+            'dativ singular*',
+            'dativ singular 1',
+            'dativ singular 2',
+            'dativ singular 3',
+            'dativ singular 4',
+            'dativ singular stark',
+            'dativ singular schwach',
+            'dativ singular gemischt',
+            'dativ plural',
+            'dativ plural*',
+            'dativ plural 1',
+            'dativ plural 2',
+            'dativ plural 3',
+            'dativ plural 4',
+            'dativ plural stark',
+            'dativ plural schwach',
+            'dativ plural gemischt',
 
-            'Akkusativ Singular',
-            'Akkusativ Singular*',
-            'Akkusativ Singular 1',
-            'Akkusativ Singular 2',
-            'Akkusativ Singular 3',
-            'Akkusativ Singular 4',
-            'Akkusativ Singular stark',
-            'Akkusativ Singular schwach',
-            'Akkusativ Singular gemischt',
-            'Akkusativ Plural',
-            'Akkusativ Plural*',
-            'Akkusativ Plural 1',
-            'Akkusativ Plural 2',
-            'Akkusativ Plural 3',
-            'Akkusativ Plural 4',
-            'Akkusativ Plural stark',
-            'Akkusativ Plural schwach',
-            'Akkusativ Plural gemischt',
+            'akkusativ singular',
+            'akkusativ singular*',
+            'akkusativ singular 1',
+            'akkusativ singular 2',
+            'akkusativ singular 3',
+            'akkusativ singular 4',
+            'akkusativ singular stark',
+            'akkusativ singular schwach',
+            'akkusativ singular gemischt',
+            'akkusativ plural',
+            'akkusativ plural*',
+            'akkusativ plural 1',
+            'akkusativ plural 2',
+            'akkusativ plural 3',
+            'akkusativ plural 4',
+            'akkusativ plural stark',
+            'akkusativ plural schwach',
+            'akkusativ plural gemischt',
         ]
         w.writerow(header)
 
@@ -264,85 +367,85 @@ for event, elem in context:
                 row = [
                     # id,
                     title,
-                    word['Wortart'] if 'Wortart' in word.keys() else '',
-                    word['Kompositum'],
-                    word['Genus'] if 'Genus' in word.keys() and word['Genus'] in 'fmn' else '',
+                    word['wortart'] if 'wortart' in word.keys() else '',
+                    word['kompositum'],
+                    word['genus'] if 'genus' in word.keys() and word['genus'] in 'fmn' else '',
 
-                    word['Nominativ Singular'] if 'Nominativ Singular' in word.keys() else '',
-                    word['Nominativ Singular*'] if 'Nominativ Singular*' in word.keys() else '',
-                    word['Nominativ Singular 1'] if 'Nominativ Singular 1' in word.keys() else '',
-                    word['Nominativ Singular 2'] if 'Nominativ Singular 2' in word.keys() else '',
-                    word['Nominativ Singular 3'] if 'Nominativ Singular 3' in word.keys() else '',
-                    word['Nominativ Singular 4'] if 'Nominativ Singular 4' in word.keys() else '',
-                    word['Nominativ Singular stark'] if 'Nominativ Singular stark' in word.keys() else '',
-                    word['Nominativ Singular schwach'] if 'Nominativ Singular schwach' in word.keys() else '',
-                    word['Nominativ Singular gemischt'] if 'Nominativ Singular gemischt' in word.keys() else '',
-                    word['Nominativ Plural'] if 'Nominativ Plural' in word.keys() else '',
-                    word['Nominativ Plural*'] if 'Nominativ Plural*' in word.keys() else '',
-                    word['Nominativ Plural 1'] if 'Nominativ Plural 1' in word.keys() else '',
-                    word['Nominativ Plural 2'] if 'Nominativ Plural 2' in word.keys() else '',
-                    word['Nominativ Plural 3'] if 'Nominativ Plural 3' in word.keys() else '',
-                    word['Nominativ Plural 4'] if 'Nominativ Plural 4' in word.keys() else '',
-                    word['Nominativ Plural stark'] if 'Nominativ Plural stark' in word.keys() else '',
-                    word['Nominativ Plural schwach'] if 'Nominativ Plural schwach' in word.keys() else '',
-                    word['Nominativ Plural gemischt'] if 'Nominativ Plural gemischt' in word.keys() else '',
+                    word['nominativ singular'] if 'nominativ singular' in word.keys() else '',
+                    word['nominativ singular*'] if 'nominativ singular*' in word.keys() else '',
+                    word['nominativ singular 1'] if 'nominativ singular 1' in word.keys() else '',
+                    word['nominativ singular 2'] if 'nominativ singular 2' in word.keys() else '',
+                    word['nominativ singular 3'] if 'nominativ singular 3' in word.keys() else '',
+                    word['nominativ singular 4'] if 'nominativ singular 4' in word.keys() else '',
+                    word['nominativ singular stark'] if 'nominativ singular stark' in word.keys() else '',
+                    word['nominativ singular schwach'] if 'nominativ singular schwach' in word.keys() else '',
+                    word['nominativ singular gemischt'] if 'nominativ singular gemischt' in word.keys() else '',
+                    word['nominativ plural'] if 'nominativ plural' in word.keys() else '',
+                    word['nominativ plural*'] if 'nominativ plural*' in word.keys() else '',
+                    word['nominativ plural 1'] if 'nominativ plural 1' in word.keys() else '',
+                    word['nominativ plural 2'] if 'nominativ plural 2' in word.keys() else '',
+                    word['nominativ plural 3'] if 'nominativ plural 3' in word.keys() else '',
+                    word['nominativ plural 4'] if 'nominativ plural 4' in word.keys() else '',
+                    word['nominativ plural stark'] if 'nominativ plural stark' in word.keys() else '',
+                    word['nominativ plural schwach'] if 'nominativ plural schwach' in word.keys() else '',
+                    word['nominativ plural gemischt'] if 'nominativ plural gemischt' in word.keys() else '',
 
-                    word['Genitiv Singular'] if 'Genitiv Singular' in word.keys() else '',
-                    word['Genitiv Singular*'] if 'Genitiv Singular*' in word.keys() else '',
-                    word['Genitiv Singular 1'] if 'Genitiv Singular 1' in word.keys() else '',
-                    word['Genitiv Singular 2'] if 'Genitiv Singular 2' in word.keys() else '',
-                    word['Genitiv Singular 3'] if 'Genitiv Singular 3' in word.keys() else '',
-                    word['Genitiv Singular 4'] if 'Genitiv Singular 4' in word.keys() else '',
-                    word['Genitiv Singular stark'] if 'Genitiv Singular stark' in word.keys() else '',
-                    word['Genitiv Singular schwach'] if 'Genitiv Singular schwach' in word.keys() else '',
-                    word['Genitiv Singular gemischt'] if 'Genitiv Singular gemischt' in word.keys() else '',
-                    word['Genitiv Plural'] if 'Genitiv Plural' in word.keys() else '',
-                    word['Genitiv Plural*'] if 'Genitiv Plural*' in word.keys() else '',
-                    word['Genitiv Plural 1'] if 'Genitiv Plural 1' in word.keys() else '',
-                    word['Genitiv Plural 2'] if 'Genitiv Plural 2' in word.keys() else '',
-                    word['Genitiv Plural 3'] if 'Genitiv Plural 3' in word.keys() else '',
-                    word['Genitiv Plural 4'] if 'Genitiv Plural 4' in word.keys() else '',
-                    word['Genitiv Plural stark'] if 'Genitiv Plural stark' in word.keys() else '',
-                    word['Genitiv Plural schwach'] if 'Genitiv Plural schwach' in word.keys() else '',
-                    word['Genitiv Plural gemischt'] if 'Genitiv Plural gemischt' in word.keys() else '',
+                    word['genitiv singular'] if 'genitiv singular' in word.keys() else '',
+                    word['genitiv singular*'] if 'genitiv singular*' in word.keys() else '',
+                    word['genitiv singular 1'] if 'genitiv singular 1' in word.keys() else '',
+                    word['genitiv singular 2'] if 'genitiv singular 2' in word.keys() else '',
+                    word['genitiv singular 3'] if 'genitiv singular 3' in word.keys() else '',
+                    word['genitiv singular 4'] if 'genitiv singular 4' in word.keys() else '',
+                    word['genitiv singular stark'] if 'genitiv singular stark' in word.keys() else '',
+                    word['genitiv singular schwach'] if 'genitiv singular schwach' in word.keys() else '',
+                    word['genitiv singular gemischt'] if 'genitiv singular gemischt' in word.keys() else '',
+                    word['genitiv plural'] if 'genitiv plural' in word.keys() else '',
+                    word['genitiv plural*'] if 'genitiv plural*' in word.keys() else '',
+                    word['genitiv plural 1'] if 'genitiv plural 1' in word.keys() else '',
+                    word['genitiv plural 2'] if 'genitiv plural 2' in word.keys() else '',
+                    word['genitiv plural 3'] if 'genitiv plural 3' in word.keys() else '',
+                    word['genitiv plural 4'] if 'genitiv plural 4' in word.keys() else '',
+                    word['genitiv plural stark'] if 'genitiv plural stark' in word.keys() else '',
+                    word['genitiv plural schwach'] if 'genitiv plural schwach' in word.keys() else '',
+                    word['genitiv plural gemischt'] if 'genitiv plural gemischt' in word.keys() else '',
 
-                    word['Dativ Singular'] if 'Dativ Singular' in word.keys() else '',
-                    word['Dativ Singular*'] if 'Dativ Singular*' in word.keys() else '',
-                    word['Dativ Singular 1'] if 'Dativ Singular 1' in word.keys() else '',
-                    word['Dativ Singular 2'] if 'Dativ Singular 2' in word.keys() else '',
-                    word['Dativ Singular 3'] if 'Dativ Singular 3' in word.keys() else '',
-                    word['Dativ Singular 4'] if 'Dativ Singular 4' in word.keys() else '',
-                    word['Dativ Singular stark'] if 'Dativ Singular stark' in word.keys() else '',
-                    word['Dativ Singular schwach'] if 'Dativ Singular schwach' in word.keys() else '',
-                    word['Dativ Singular gemischt'] if 'Dativ Singular gemischt' in word.keys() else '',
-                    word['Dativ Plural'] if 'Dativ Plural' in word.keys() else '',
-                    word['Dativ Plural*'] if 'Dativ Plural*' in word.keys() else '',
-                    word['Dativ Plural 1'] if 'Dativ Plural 1' in word.keys() else '',
-                    word['Dativ Plural 2'] if 'Dativ Plural 2' in word.keys() else '',
-                    word['Dativ Plural 3'] if 'Dativ Plural 3' in word.keys() else '',
-                    word['Dativ Plural 4'] if 'Dativ Plural 4' in word.keys() else '',
-                    word['Dativ Plural stark'] if 'Dativ Plural stark' in word.keys() else '',
-                    word['Dativ Plural schwach'] if 'Dativ Plural schwach' in word.keys() else '',
-                    word['Dativ Plural gemischt'] if 'Dativ Plural gemischt' in word.keys() else '',
+                    word['dativ singular'] if 'dativ singular' in word.keys() else '',
+                    word['dativ singular*'] if 'dativ singular*' in word.keys() else '',
+                    word['dativ singular 1'] if 'dativ singular 1' in word.keys() else '',
+                    word['dativ singular 2'] if 'dativ singular 2' in word.keys() else '',
+                    word['dativ singular 3'] if 'dativ singular 3' in word.keys() else '',
+                    word['dativ singular 4'] if 'dativ singular 4' in word.keys() else '',
+                    word['dativ singular stark'] if 'dativ singular stark' in word.keys() else '',
+                    word['dativ singular schwach'] if 'dativ singular schwach' in word.keys() else '',
+                    word['dativ singular gemischt'] if 'dativ singular gemischt' in word.keys() else '',
+                    word['dativ plural'] if 'dativ plural' in word.keys() else '',
+                    word['dativ plural*'] if 'dativ plural*' in word.keys() else '',
+                    word['dativ plural 1'] if 'dativ plural 1' in word.keys() else '',
+                    word['dativ plural 2'] if 'dativ plural 2' in word.keys() else '',
+                    word['dativ plural 3'] if 'dativ plural 3' in word.keys() else '',
+                    word['dativ plural 4'] if 'dativ plural 4' in word.keys() else '',
+                    word['dativ plural stark'] if 'dativ plural stark' in word.keys() else '',
+                    word['dativ plural schwach'] if 'dativ plural schwach' in word.keys() else '',
+                    word['dativ plural gemischt'] if 'dativ plural gemischt' in word.keys() else '',
                     
-                    word['Akkusativ Singular'] if 'Akkusativ Singular' in word.keys() else '',
-                    word['Akkusativ Singular*'] if 'Akkusativ Singular*' in word.keys() else '',
-                    word['Akkusativ Singular 1'] if 'Akkusativ Singular 1' in word.keys() else '',
-                    word['Akkusativ Singular 2'] if 'Akkusativ Singular 2' in word.keys() else '',
-                    word['Akkusativ Singular 3'] if 'Akkusativ Singular 3' in word.keys() else '',
-                    word['Akkusativ Singular 4'] if 'Akkusativ Singular 4' in word.keys() else '',
-                    word['Akkusativ Singular stark'] if 'Akkusativ Singular stark' in word.keys() else '',
-                    word['Akkusativ Singular schwach'] if 'Akkusativ Singular schwach' in word.keys() else '',
-                    word['Akkusativ Singular gemischt'] if 'Akkusativ Singular gemischt' in word.keys() else '',
-                    word['Akkusativ Plural'] if 'Akkusativ Plural' in word.keys() else '',
-                    word['Akkusativ Plural*'] if 'Akkusativ Plural*' in word.keys() else '',
-                    word['Akkusativ Plural 1'] if 'Akkusativ Plural 1' in word.keys() else '',
-                    word['Akkusativ Plural 2'] if 'Akkusativ Plural 2' in word.keys() else '',
-                    word['Akkusativ Plural 3'] if 'Akkusativ Plural 3' in word.keys() else '',
-                    word['Akkusativ Plural 4'] if 'Akkusativ Plural 4' in word.keys() else '',
-                    word['Akkusativ Plural stark'] if 'Akkusativ Plural stark' in word.keys() else '',
-                    word['Akkusativ Plural schwach'] if 'Akkusativ Plural schwach' in word.keys() else '',
-                    word['Akkusativ Plural gemischt'] if 'Akkusativ Plural gemischt' in word.keys() else '',
+                    word['akkusativ singular'] if 'akkusativ singular' in word.keys() else '',
+                    word['akkusativ singular*'] if 'akkusativ singular*' in word.keys() else '',
+                    word['akkusativ singular 1'] if 'akkusativ singular 1' in word.keys() else '',
+                    word['akkusativ singular 2'] if 'akkusativ singular 2' in word.keys() else '',
+                    word['akkusativ singular 3'] if 'akkusativ singular 3' in word.keys() else '',
+                    word['akkusativ singular 4'] if 'akkusativ singular 4' in word.keys() else '',
+                    word['akkusativ singular stark'] if 'akkusativ singular stark' in word.keys() else '',
+                    word['akkusativ singular schwach'] if 'akkusativ singular schwach' in word.keys() else '',
+                    word['akkusativ singular gemischt'] if 'akkusativ singular gemischt' in word.keys() else '',
+                    word['akkusativ plural'] if 'akkusativ plural' in word.keys() else '',
+                    word['akkusativ plural*'] if 'akkusativ plural*' in word.keys() else '',
+                    word['akkusativ plural 1'] if 'akkusativ plural 1' in word.keys() else '',
+                    word['akkusativ plural 2'] if 'akkusativ plural 2' in word.keys() else '',
+                    word['akkusativ plural 3'] if 'akkusativ plural 3' in word.keys() else '',
+                    word['akkusativ plural 4'] if 'akkusativ plural 4' in word.keys() else '',
+                    word['akkusativ plural stark'] if 'akkusativ plural stark' in word.keys() else '',
+                    word['akkusativ plural schwach'] if 'akkusativ plural schwach' in word.keys() else '',
+                    word['akkusativ plural gemischt'] if 'akkusativ plural gemischt' in word.keys() else '',
                 ]
 
                 storage.append(row)
