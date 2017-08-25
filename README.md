@@ -1,5 +1,5 @@
 # German nouns
-A comma seperated list of ~ 68 thousand German nouns and their grammatical categories (*tense, number, gender*).
+A comma seperated list of ~ 68 thousand German nouns and their grammatical properties (*tense, number, gender*).
 
 Compiled from *[WiktionaryDE](https://de.wiktionary.org)*
 
