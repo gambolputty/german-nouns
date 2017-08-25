@@ -81,12 +81,24 @@ def parse_page(text):
                                     form = stamm + u's'
                                 found_word['nominativ singular stark'] = form
                             if 'nominativ plural stark' not in keys and kein_plural is False:
-                                found_word['nominativ plural stark'] = stamm + u'n'
+                                found_word['nominativ plural stark'] = stamm
                             if 'genitiv singular stark' not in keys and kein_singular is False:
-                                found_word['genitiv singular stark'] = stamm + u'n'
+                                if genus == 'm':
+                                    form = stamm + u'n'
+                                elif genus == 'f':
+                                    form = stamm + u'r'
+                                elif genus == 'n':
+                                    form = stamm + u'n'
+                                found_word['genitiv singular stark'] = form
                             if 'genitiv plural stark' not in keys and kein_plural is False:
-                                found_word['genitiv plural stark'] = stamm + u'n'
+                                found_word['genitiv plural stark'] = stamm + u'r'
                             if 'dativ singular stark' not in keys and kein_singular is False:
+                                if genus == 'm':
+                                    form = stamm + u'm'
+                                elif genus == 'f':
+                                    form = stamm + u'r'
+                                elif genus == 'n':
+                                    form = stamm + u'm'
                                 found_word['dativ singular stark'] = stamm + u'n'
                             if 'dativ plural stark' not in keys and kein_plural is False:
                                 found_word['dativ plural stark'] = stamm + u'n'
@@ -99,7 +111,7 @@ def parse_page(text):
                                     form = stamm + u's'
                                 found_word['akkusativ singular stark'] = form
                             if 'akkusativ plural stark' not in keys and kein_plural is False:
-                                found_word['akkusativ plural stark'] = stamm + u'n'
+                                found_word['akkusativ plural stark'] = stamm
 
                             if 'nominativ singular schwach' not in keys and kein_singular is False:
                                 found_word['nominativ singular schwach'] = stamm
@@ -133,23 +145,11 @@ def parse_page(text):
                             if 'nominativ plural gemischt' not in keys and kein_plural is False:
                                 found_word['nominativ plural gemischt'] = stamm
                             if 'genitiv singular gemischt' not in keys and kein_singular is False:
-                                if genus == 'm':
-                                    form = stamm + u'n'
-                                elif genus == 'f':
-                                    form = stamm + u'r'
-                                elif genus == 'n':
-                                    form = stamm + u'n'
-                                found_word['genitiv singular gemischt'] = form
+                                found_word['genitiv singular gemischt'] = stamm + u'n'
                             if 'genitiv plural gemischt' not in keys and kein_plural is False:
-                                found_word['genitiv plural gemischt'] = stamm + u'r'
+                                found_word['genitiv plural gemischt'] = stamm + u'n'
                             if 'dativ singular gemischt' not in keys and kein_singular is False:
-                                if genus == 'm':
-                                    form = stamm + u'm'
-                                elif genus == 'f':
-                                    form = stamm + u'r'
-                                elif genus == 'n':
-                                    form = stamm + u'm'
-                                found_word['dativ singular gemischt'] = form
+                                found_word['dativ singular gemischt'] = stamm + u'n'
                             if 'dativ plural gemischt' not in keys and kein_plural is False:
                                 found_word['dativ plural gemischt'] = stamm + u'n'
                             if 'akkusativ singular gemischt' not in keys and kein_singular is False:
