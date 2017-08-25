@@ -73,7 +73,13 @@ def parse_page(text):
                             genus = found_word['genus']
 
                             if 'nominativ singular stark' not in keys and kein_singular is False:
-                                found_word['nominativ singular stark'] = stamm
+                                if genus == 'm':
+                                    form = stamm + u'r'
+                                elif genus == 'f':
+                                    form = stamm
+                                elif genus == 'n':
+                                    form = stamm + u's'
+                                found_word['nominativ singular stark'] = form
                             if 'nominativ plural stark' not in keys and kein_plural is False:
                                 found_word['nominativ plural stark'] = stamm + u'n'
                             if 'genitiv singular stark' not in keys and kein_singular is False:
@@ -87,20 +93,16 @@ def parse_page(text):
                             if 'akkusativ singular stark' not in keys and kein_singular is False:
                                 if genus == 'm':
                                     form = stamm + u'n'
-                                else:
+                                elif genus == 'f':
                                     form = stamm
+                                elif genus == 'n':
+                                    form = stamm + u's'
                                 found_word['akkusativ singular stark'] = form
                             if 'akkusativ plural stark' not in keys and kein_plural is False:
                                 found_word['akkusativ plural stark'] = stamm + u'n'
 
                             if 'nominativ singular schwach' not in keys and kein_singular is False:
-                                if genus == 'm':
-                                    form = stamm + u'r'
-                                elif genus == 'f':
-                                    form = stamm
-                                elif genus == 'n':
-                                    form = stamm + u's'
-                                found_word['nominativ singular schwach'] = form
+                                found_word['nominativ singular schwach'] = stamm
                             if 'nominativ plural schwach' not in keys and kein_plural is False:
                                 found_word['nominativ plural schwach'] = stamm + u'n'
                             if 'genitiv singular schwach' not in keys and kein_singular is False:
@@ -114,10 +116,8 @@ def parse_page(text):
                             if 'akkusativ singular schwach' not in keys and kein_singular is False:
                                 if genus == 'm':
                                     form = stamm + u'n'
-                                elif genus == 'f':
+                                else:
                                     form = stamm
-                                elif genus == 'n':
-                                    form = stamm + u's'
                                 found_word['akkusativ singular schwach'] = form
                             if 'akkusativ plural schwach' not in keys and kein_plural is False:
                                 found_word['akkusativ plural schwach'] = stamm + u'n'
