@@ -1,11 +1,6 @@
 # German nouns
-A comma seperated list of ~ 40 thousand German nouns and their grammatical number (*singular/plural*) and gender (*male/female/neuter*). All nouns are in *[nominative case](https://en.wikipedia.org/wiki/Nominative_case)*.
+A comma seperated list of ~ 68 thousand German nouns and their grammatical categories (*tense, number, gender*).
 
-Compiled from *[WiktionaryDE](https://de.wiktionary.org)* and *[Vollformenlexikon](http://www.danielnaber.de/morphologie/)*.
+Compiled from *[WiktionaryDE](https://de.wiktionary.org)*
 
-Abriviations (gender):
-* `m` – male
-* `f` – female
-* `n` – neuter
-
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+License: [Creative Commons Attribution-ShareAlike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/deed.en).
