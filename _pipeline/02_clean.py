@@ -17,7 +17,6 @@ for idx, row in enumerate(csv_reader):
 
     # skip head
     if idx == 0:
-        _row[0] = 'WikiTitel'
         header.append(_row)
         continue
 

@@ -200,7 +200,7 @@ if not os.path.isfile(csv_path):
         w = unicodecsv.writer(f, delimiter=',', encoding='utf-8')
         header = [
             # 'id',
-            'titel',
+            'lemma',
             'wortart',
             'kompositum',
             'genus',
