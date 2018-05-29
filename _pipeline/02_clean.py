@@ -20,20 +20,19 @@ for idx, row in enumerate(csv_reader):
         header.append(_row)
         continue
 
-    if _row[1].startswith(('Vorlage:', '-')):
-        continue
-
+    # exclude duplicates
     if _row in cleaned:
         continue
 
-    # parse cells
     for i in xrange(0, (len(_row) - 1)):
+        # comments, ref links etc
         _row[i] = re.sub(r'<!--.+?-->', '', _row[i])
+        # empty cells
         _row[i] = re.sub(ur'^—$', '', _row[i])
 
     cleaned.append(_row)
 
-# sort
+# sort alphabetically
 result = sorted(cleaned, key=itemgetter(0))
 
 result = header + result
