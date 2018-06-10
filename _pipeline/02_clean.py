@@ -28,7 +28,7 @@ for idx, row in enumerate(csv_reader):
         # comments, ref links etc
         _row[i] = re.sub(r'<!--.+?-->', '', _row[i])
         # empty cells
-        _row[i] = re.sub(ur'^—$', '', _row[i])
+        _row[i] = re.sub(ur'^—|-$', '', _row[i])
 
     cleaned.append(_row)
 
