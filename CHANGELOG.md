@@ -6,11 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2019-04-14
 ### Added
-- (wiktionary_de_parser)[https://github.com/gambolputty/wiktionary_de_parser] as parser script for Wiktionary xml dump
+- [wiktionary_de_parser](https://github.com/gambolputty/wiktionary_de_parser) as parser script for Wiktionary xml dump
 - 'Genus 1' - 'Genus 4' columns
 
 ### Fixed
-- overall better parsing results due to submodule (wiktionary_de_parser)[https://github.com/gambolputty/wiktionary_de_parser]
+- overall better parsing results due to submodule [wiktionary_de_parser](https://github.com/gambolputty/wiktionary_de_parser)
 
 ### Changed
 - Python 3.7+ requirement
