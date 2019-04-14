@@ -1,0 +1,3 @@
+[submodule "create_csv/wiktionary_de_parser"]
+	path = create_csv/wiktionary_de_parser
+	url = https://github.com/gambolputty/wiktionary_de_parser
