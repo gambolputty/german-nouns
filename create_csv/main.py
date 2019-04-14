@@ -23,7 +23,7 @@ for record in Parser(bz, custom_methods=[extend_flexion]):
     if re.search(r'{{Alte Schreibweise\|[^}]+}}', record['wikitext']):
         continue
 
-    if record['title'] != record['lemma']:
+    if record['inflected'] is True:
         continue
 
     if 'language' not in record or record['language'].lower() != 'deutsch':
