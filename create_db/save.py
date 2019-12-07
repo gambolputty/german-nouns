@@ -10,7 +10,6 @@ import sqlite3
 header = [
     # 'id',
     'lemma',
-    'pos',
     'genus',
     'genus 1',
     'genus 2',
