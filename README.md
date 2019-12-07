@@ -1,5 +1,5 @@
 # German nouns
-A sqlite database table of ~ 83 thousand german nouns and their grammatical properties (*tense, number, gender*).
+A sqlite database table of 86916 thousand german nouns and their grammatical properties (*tense, number, gender*).
 
 More info about the different columns can be found [here](https://de.wiktionary.org/wiki/Hilfe:Flexionstabellen)
 
