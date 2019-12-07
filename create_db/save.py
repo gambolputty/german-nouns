@@ -100,13 +100,13 @@ def create_db_entries(db, data):
     
         for col_name in header:
             if col_name in word_data:
-                db_action_string = 'INSERT INTO Nomen VALUES(NULL,\'{}\',\'{}\',\'{}\')'.format(word_data['lemma'], col_name, word_data[col_name])
-                print(db_action_string)
-                db.execute(db_action_string)
+                db_execute_parameters = [word_data['lemma'], col_name, word_data[col_name]]
+                print(db_execute_parameters)
+                db.execute("INSERT INTO Nomen VALUES(NULL,?,?,?)",db_execute_parameters)
             elif 'flexion' in word_data and col_name in word_data['flexion']:
-                db_action_string = 'INSERT INTO Nomen VALUES(NULL,\'{}\',\'{}\',\'{}\')'.format(word_data['lemma'], col_name, word_data['flexion'][col_name])
-                print(db_action_string)
-                db.execute(db_action_string)
+                db_execute_parameters = [word_data['lemma'], col_name, word_data['flexion'][col_name]]
+                print(db_execute_parameters)
+                db.execute("INSERT INTO Nomen VALUES(NULL,?,?,?)",db_execute_parameters)
             else:
                 pass
 
