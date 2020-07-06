@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2020-07-06
+### Added
+- [wiktionary_de_parser](https://github.com/gambolputty/wiktionary_de_parser) requirement
+
+### Changed
+- updated `create_csv/main.py` to use with latest version of [wiktionary_de_parser](https://github.com/gambolputty/wiktionary_de_parser)
+- updated `nouns.csv`
+- README
+
 ## [1.0.0] - 2019-04-14
 ### Added
 - [wiktionary_de_parser](https://github.com/gambolputty/wiktionary_de_parser) as parser script for Wiktionary xml dump
