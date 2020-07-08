@@ -19,7 +19,7 @@ python -m create_csv /path-to-dump-file/dewiktionary-latest-pages-articles-multi
 ```
 
 ### Query the CSV file
-All examples in [german_nouns/query/__main__.py](/german_nouns/query/__main__.py) (command: `cd german_nouns && python -m query`):
+All examples in [here](/german_nouns/query/__main__.py) (command: `cd german_nouns && python -m query`):
 ```python
 from query.NounDictionary import NounDictionary
 
