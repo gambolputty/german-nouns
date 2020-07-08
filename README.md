@@ -10,6 +10,7 @@ bash setup.sh
 ```
 
 ### Create CSV file from Wiktionary dump
+Data is saved in `german_nouns/nouns.csv`.
 ```shell
 cd german_nouns
 python -m create_csv /path-to-dump-file/dewiktionary-latest-pages-articles-multistream.xml.bz2
