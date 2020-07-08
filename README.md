@@ -56,7 +56,7 @@ print(last_word)
 compound_words = nouns.parse_compound('Vermögensbildung')
 print(compound_words)
 # Output:
-['vermögen', 'bildung']
+['vermögen', 'bildung'] # Lookup the words: nouns['vermögen'] etc.
 ```
 
 List compiled from [WiktionaryDE](https://de.wiktionary.org) with [wiktionary_de_parser](https://github.com/gambolputty/wiktionary_de_parser).
