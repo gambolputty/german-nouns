@@ -3,9 +3,13 @@ from query.NounDictionary import NounDictionary
 
 nouns = NounDictionary('../nouns.csv')
 
+# Get a word
+word_entry = nouns['Fahrrad']
+pprint(word_entry)
+
 # get the last word of a compound
 last_word = nouns.last_word('Falkenstein')
-print(last_word)
+pprint(last_word)
 
 # parse compound word
 compound_words = nouns.parse_compound('Vermögensbildung')

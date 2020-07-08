@@ -10,23 +10,53 @@ python -m create_csv /path-to-dump-file/dewiktionary-latest-pages-articles-multi
 ```
 
 ### Query the CSV file
-Example in `german_nouns/query/__main__.py` (command: `cd german_nouns && python -m query`):
+All examples in `german_nouns/query/__main__.py` (command: `cd german_nouns && python -m query`):
 ```python
 from query.NounDictionary import NounDictionary
 
 nouns = NounDictionary('../nouns.csv')
 
+# Lookup a word
+word_entry = nouns['Fahrrad']
+pprint(word_entry)
+# Output:
+[{'flexion': {'akkusativ plural': 'Fahrräder',
+              'akkusativ singular': 'Fahrrad',
+              'dativ plural': 'Fahrrädern',
+              'dativ singular': 'Fahrrad',
+              'dativ singular*': 'Fahrrade',
+              'genitiv plural': 'Fahrräder',
+              'genitiv singular': 'Fahrrades',
+              'genitiv singular*': 'Fahrrads',
+              'nominativ plural': 'Fahrräder',
+              'nominativ singular': 'Fahrrad'},
+  'genus': 'n',
+  'lemma': 'Fahrrad',
+  'pos': ['Substantiv']}]
+
 # get the last word of a compound
 last_word = nouns.last_word('Falkenstein')
 print(last_word)
 # Output:
-# [{'flexion': {'nominativ singular': 'Stein', 'nominativ plural': 'Steine', 'genitiv singular': 'Steins', 'genitiv singular*': 'Steines', 'genitiv plural': 'Steine', 'dativ singular': 'Stein', 'dativ singular*': 'Steine', 'dativ plural': 'Steinen', 'akkusativ singular': 'Stein', 'akkusativ plural': 'Steine'}, 'lemma': 'Stein', 'pos': ['Substantiv'], 'genus': 'm'}]
+[{'flexion': {'akkusativ plural': 'Steine',
+              'akkusativ singular': 'Stein',
+              'dativ plural': 'Steinen',
+              'dativ singular': 'Stein',
+              'dativ singular*': 'Steine',
+              'genitiv plural': 'Steine',
+              'genitiv singular': 'Steins',
+              'genitiv singular*': 'Steines',
+              'nominativ plural': 'Steine',
+              'nominativ singular': 'Stein'},
+  'genus': 'm',
+  'lemma': 'Stein',
+  'pos': ['Substantiv']}
 
 # parse compound word
 compound_words = nouns.parse_compound('Vermögensbildung')
 print(compound_words)
 # Output:
-# ['vermögen', 'bildung']
+['vermögen', 'bildung']
 ```
 
 List compiled from [WiktionaryDE](https://de.wiktionary.org) with [wiktionary_de_parser](https://github.com/gambolputty/wiktionary_de_parser).
