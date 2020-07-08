@@ -1,6 +1,8 @@
 # German nouns
 A comma seperated list of ~ 90 thousand German nouns and their grammatical properties (*tense, number, gender*) as CSV file. Plus some methods to query the data.
 
+The list is located here: `german_nouns/nouns.csv`
+
 ## Usage
 
 ### Clone repository and install requirements
