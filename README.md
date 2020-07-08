@@ -7,7 +7,7 @@ The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 
 ### Clone repository and install requirements
 ```shell
-clone https://github.com/gambolputty/german_nouns
+git clone https://github.com/gambolputty/german_nouns
 bash setup.sh
 ```
 
