@@ -5,14 +5,14 @@ A comma seperated list of ~ 90 thousand German nouns and their grammatical prope
 
 ### Clone repository and install requirements
 ```shell
-clone https://github.com/gambolputty/german_nouns
-bash setup.sh
+$ clone https://github.com/gambolputty/german_nouns
+$ bash setup.sh
 ```
 
 ### Create CSV file from Wiktionary dump
 ```shell
-cd german_nouns
-python -m create_csv /path-to-dump-file/dewiktionary-latest-pages-articles-multistream.xml.bz2
+$ cd german_nouns
+$ python -m create_csv /path-to-dump-file/dewiktionary-latest-pages-articles-multistream.xml.bz2
 ```
 
 ### Query the CSV file
