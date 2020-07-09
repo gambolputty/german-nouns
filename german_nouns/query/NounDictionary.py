@@ -120,6 +120,11 @@ class NounDictionary(object):
             test_str = ''
             for idx, char in enumerate(reversed(chars)):
                 test_str = char + test_str
+                
+                # don't add last character to variants
+                if idx == 0:
+                    continue
+                
                 variations = [test_str]
                 for f in fugen_laute:
                     if len(f) >= len(test_str):
