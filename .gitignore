@@ -1,4 +1,7 @@
 *.pyc
 __pycache__/
-
 .DS_Store
+
+
+
+german_nouns/nouns_index.txt
