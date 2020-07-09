@@ -149,9 +149,9 @@ class NounDictionary(object):
             if not hits:
                 return False
 
-            # if multiple words found, get longes
-            longes_key = max(hits, key=len)
-            return hits[longes_key]
+            # take leftmost item
+            leftmost_key = min(hits, key=lambda key: hits[key]['pos'])
+            return hits[leftmost_key]
 
         found_words = []
         curr_str = search_val_low
