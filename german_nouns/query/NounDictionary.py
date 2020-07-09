@@ -175,7 +175,7 @@ class NounDictionary(object):
                 return []
 
             # wenn erstes Wort nicht mit search_val_low anfängt
-            if search_val_low.startswith(found_words[0]) is False:
+            if search_val_low.startswith(found_words[0].lower()) is False:
                 return []
 
         return found_words
