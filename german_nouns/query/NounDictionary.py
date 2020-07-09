@@ -16,7 +16,7 @@ class NounDictionary(object):
 
         # parse nouns csv file to data
         nouns_file_path = Path(nouns_path)
-        nouns_folder_path = nouns_file_path.cwd()
+        nouns_folder_path = nouns_file_path.parent
         data = list(csv.reader(open(nouns_file_path)))
         self.header = data[0]
         self.data = data[1:]
