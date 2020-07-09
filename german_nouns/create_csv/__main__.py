@@ -42,6 +42,6 @@ for record in tqdm(Parser(bz, custom_methods=[extend_flexion])):
 
     data.append(record)
 
-save('../nouns.csv', data)
+save('nouns.csv', data)
 
 print(f'Saved {len(data)} records')
