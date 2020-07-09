@@ -133,9 +133,6 @@ class NounDictionary(object):
                     except KeyError:
                         continue
                     for item in items:
-                        # only lemma
-                        if var != item['lemma'].lower():
-                            continue
                         if 'Buchstabe' in item['pos'] \
                                 or u'Abkürzung'in item['pos'] \
                                 or 'Wortverbindung' in item['pos'] \
@@ -145,7 +142,9 @@ class NounDictionary(object):
                                 or var == search_val_low \
                                 or var in forb_words:
                             continue
-                        hits[var] = {'word': var, 'pos': search_val_low.index(var)}
+
+                        # append position and lemma of found word
+                        hits[var] = {'word': item['lemma'], 'pos': search_val_low.index(var)}
             if not hits:
                 return False
 

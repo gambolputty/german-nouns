@@ -19,5 +19,5 @@ thinc==7.4.1
 tqdm==4.47.0
 urllib3==1.25.9
 wasabi==0.7.0
-wiktionary-de-parser==0.8.0
+wiktionary-de-parser==0.8.1
 zipp==3.1.0
