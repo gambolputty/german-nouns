@@ -61,7 +61,7 @@ class NounDictionary(object):
                     continue
                 if len(cell) == 0:
                     continue
-                word_low = cell.casefold()
+                word_low = cell.lower()
                 if row_idx not in self.index[word_low]:
                     # liste, weil Reihenfolge der Indexes erhalten bleiben muss
                     self.index[word_low].append(row_idx)
@@ -126,7 +126,7 @@ class NounDictionary(object):
                         continue
                     repl = re.sub(f + r'$', '', test_str)
                     if repl and repl != char and repl not in variations:
-                        variations.append(repl.casefold())
+                        variations.append(repl.lower())
                 for var in variations:
                     try:
                         items = [self.row_to_dict(self.data[idx]) for idx in self.index[var]]
