@@ -149,32 +149,33 @@ class NounDictionary(object):
                             continue
 
                         # append position and lemma of found word
-                        hits[var] = {'lemma': item['lemma'], 'pos': search_val_low.index(var)}
+                        hits[var] = {
+                            'lemma': item['lemma'],
+                            'match': var,
+                            'pos': search_val_low.index(var)
+                        }
             if not hits:
                 return False
 
             # sort hits by word length and position and return first item
             return sorted(list(hits.values()), key=lambda k: (-len(k['lemma']), k['pos']))[0]
 
-        found_words = []
+        results = []
         curr_str = search_val_low
         while True:
             found_word = loop_characters(curr_str)
             if not found_word:
-                if len(curr_str) > 1 and self.index[curr_str] and len(found_words) > 0:
-                    found_words.append(curr_str)
+                if len(curr_str) > 1 and self.index[curr_str] and len(results) > 0:
+                    results.append(curr_str)
                 break
-            found_words.append(found_word['lemma'])
-            curr_str = curr_str[:found_word['pos']]
 
-        found_words.reverse()
+            curr_str = curr_str[:found_word['pos']]
+            results.append(found_word)
+
+        results.reverse()
 
         if strict is True:
-            if len(found_words) <= 1:
+            if len(results['lemma']) <= 1:
                 return []
 
-            # wenn erstes Wort nicht mit search_val_low anfängt
-            if search_val_low.startswith(found_words[0].lower()) is False:
-                return []
-
-        return found_words
+        return results
