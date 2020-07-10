@@ -149,13 +149,12 @@ class NounDictionary(object):
                             continue
 
                         # append position and lemma of found word
-                        hits[var] = {'word': item['lemma'], 'pos': search_val_low.index(var)}
+                        hits[var] = {'lemma': item['lemma'], 'pos': search_val_low.index(var)}
             if not hits:
                 return False
 
-            # take leftmost item
-            leftmost_key = min(hits, key=lambda key: hits[key]['pos'])
-            return hits[leftmost_key]
+            # sort hits by word length and position and return first item
+            return sorted(list(hits.values()), key=lambda k: (-len(k['lemma']), k['pos']))[0]
 
         found_words = []
         curr_str = search_val_low
@@ -165,7 +164,7 @@ class NounDictionary(object):
                 if len(curr_str) > 1 and self.index[curr_str] and len(found_words) > 0:
                     found_words.append(curr_str)
                 break
-            found_words.append(found_word['word'])
+            found_words.append(found_word['lemma'])
             curr_str = curr_str[:found_word['pos']]
 
         found_words.reverse()
