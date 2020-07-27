@@ -55,7 +55,7 @@ class NounDictionary(object):
         print('Creating index once.')
         
         # create index
-        for row_idx, row in tqdm(enumerate(self.data)):
+        for row_idx, row in tqdm(enumerate(self.data), disable=__name__ != '__main__'):
             for col_idx, cell in enumerate(row):
                 if col_idx <= skip_col_index:
                     continue
