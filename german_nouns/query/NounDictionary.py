@@ -110,7 +110,7 @@ class NounDictionary(object):
         return [self.row_to_dict(self.data[i]) for i in self.index[words[-1]]]
 
 
-    def parse_compound(self, search_val, strict=False):
+    def parse_compound(self, search_val, strict=False, exlcude_lemmas=[]):
         fugen_laute = {'e', 's', 'es', 'n', 'en', 'er', 'ens'}
         forb_words = {'ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr'}
         search_val_low = search_val.lower()
@@ -132,9 +132,11 @@ class NounDictionary(object):
                     repl = re.sub(f + r'$', '', test_str)
                     if repl and repl != char and repl not in variations:
                         variations.append(repl.lower())
+
                 for var in variations:
                     try:
-                        items = [self.row_to_dict(self.data[idx]) for idx in self.index[var]]
+                        items = [self.row_to_dict(self.data[idx]) for idx \
+                            in self.index[var] if self.data[idx][0] not in exlcude_lemmas]
                     except KeyError:
                         continue
                     for item in items:
