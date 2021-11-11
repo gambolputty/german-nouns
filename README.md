@@ -4,21 +4,29 @@ A comma seperated list of ~ 90 thousand German nouns and their grammatical prope
 
 The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 
+## Requirements
+
+- 3.8+
+- [Poetry](https://python-poetry.org/)
+
 ## Usage
 
-### Clone repository and install requirements
+### Clone the repository and install requirements
 
 ```shell
-git clone https://github.com/gambolputty/german_nouns
-bash setup.sh
+>> git clone https://github.com/gambolputty/german_nouns
+>> cd german_nouns
+>> poetry install
 ```
 
 ### Create CSV file from Wiktionary dump
 
-Data is saved in [german_nouns/nouns.csv](/german_nouns/nouns.csv).
+The CSV file is here: [german_nouns/nouns.csv](/german_nouns/nouns.csv).
+
+Find the latest XML-dump files here: [https://dumps.wikimedia.org/dewiktionary/latest](https://dumps.wikimedia.org/dewiktionary/latest), for example [this one](https://dumps.wikimedia.org/dewiktionary/latest/dewiktionary-latest-pages-articles-multistream.xml.bz2) and download it. Then execute:
 
 ```shell
-python -m german_nouns.parse_dump /path-to-dump-file/dewiktionary-latest-pages-articles-multistream.xml.bz2
+python -m german_nouns.parse_dump /path-to-xml-dump-file.xml.bz2
 ```
 
 ### Query the CSV file
