@@ -1,6 +1,6 @@
 # German nouns
 
-A comma seperated list of ~ 90 thousand German nouns and their grammatical properties (_tense, number, gender_) as CSV file. Plus some methods to query the data.
+A comma seperated list of ~98 thousand German nouns and their grammatical properties (_tense, number, gender_) as CSV file. Plus some methods to query the data.
 
 The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 
@@ -11,7 +11,7 @@ The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 
 ## Usage
 
-### Clone the repository and install requirements
+1. Clone the repository and install dependencies with [Poetry](https://python-poetry.org/):
 
 ```shell
 >> git clone https://github.com/gambolputty/german_nouns
@@ -19,15 +19,15 @@ The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 >> poetry install
 ```
 
-### Create CSV file from Wiktionary dump
-
-The CSV file is here: [german_nouns/nouns.csv](/german_nouns/nouns.csv).
+2. Compile the list of nouns from a Wiktionary XML file:
 
 Find the latest XML-dump files here: [https://dumps.wikimedia.org/dewiktionary/latest](https://dumps.wikimedia.org/dewiktionary/latest), for example [this one](https://dumps.wikimedia.org/dewiktionary/latest/dewiktionary-latest-pages-articles-multistream.xml.bz2) and download it. Then execute:
 
 ```shell
-python -m german_nouns.parse_dump /path-to-xml-dump-file.xml.bz2
+>> python -m german_nouns.parse_dump /path-to-xml-dump-file.xml.bz2
 ```
+
+The CSV file will be saved here: [german_nouns/nouns.csv](/german_nouns/nouns.csv).
 
 ### Query the CSV file
 
