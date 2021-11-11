@@ -1,25 +1,21 @@
-import xml.etree.ElementTree as etree
-import os
 import re
 import sys
-from bz2file import BZ2File
-from pdb import set_trace as bp
-from pprint import pprint
-from wiktionary_de_parser import Parser
-from tqdm import tqdm
-from create_csv.extend_flexion import extend_flexion
-from create_csv.save import save
 
+from bz2file import BZ2File
+from wiktionary_de_parser import Parser
+
+from german_nouns.parse_dump.extend_flexion import extend_flexion
+from german_nouns.parse_dump.save import save
 
 if len(sys.argv) <= 1:
-    print('No arguments provided')
+    print('Please provide a path to the Wiktionary XML-Dump file')
     sys.exit()
 
 data = []
 dump_path = sys.argv[1]
 bz = BZ2File(dump_path)
 
-for record in tqdm(Parser(bz, custom_methods=[extend_flexion])):
+for record in Parser(bz, custom_methods=[extend_flexion]):
 
     if record['inflected'] is True:
         continue

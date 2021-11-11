@@ -1,12 +1,12 @@
 from operator import itemgetter
-import os
 import locale
 import csv
-locale.setlocale(locale.LC_ALL, 'deu_deu' if os.name == 'nt' else 'de_DE.UTF-8')
-# from pdb import set_trace as bp
+
+# make sure your system supports this locale
+# see: https://stackoverflow.com/a/36257050/5732518
+locale.setlocale(locale.LC_ALL, 'de_DE.UTF-8')
 
 header = [
-    # 'id',
     'lemma',
     'pos',
     'genus',
@@ -95,23 +95,24 @@ header = [
 
 def create_csv_lines(data):
     lines = []
-    # map dict values to list
-    for word_data in data:
-        line = []
 
-        if word_data['pos']:
-            pos = list(word_data['pos'].keys())
-            for pos_names in word_data['pos'].values():
-                uniq_v = [n for n in pos_names if n not in pos]
-                if uniq_v:
-                    pos.extend(uniq_v)
-            word_data['pos'] = ','.join(pos)
+    for record in data:
+        line = []
+        # flatten record['pos'], which is a dict() of lists
+        if record['pos']:
+            pos = set()
+            for key, value in record['pos'].items():
+                pos.add(key)
+                if value:
+                    pos.update(value)
+            pos = list(pos)
+            record['pos'] = ','.join(pos)
 
         for col_name in header:
-            if col_name in word_data:
-                line.append(word_data[col_name])
-            elif 'flexion' in word_data and col_name in word_data['flexion']:
-                line.append(word_data['flexion'][col_name])
+            if col_name in record:
+                line.append(record[col_name])
+            elif 'flexion' in record and col_name in record['flexion']:
+                line.append(record['flexion'][col_name])
             else:
                 line.append('')
 
@@ -119,6 +120,7 @@ def create_csv_lines(data):
 
     # sort alphabetically
     result = sorted(lines, key=itemgetter(0))
+
     return result
 
 
@@ -129,5 +131,6 @@ def save(csv_path, data):
 
         # map dict values to list
         csv_lines = create_csv_lines(data)
+
         for line in csv_lines:
             csv_writer.writerow(line)

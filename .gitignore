@@ -2,6 +2,6 @@
 __pycache__/
 .DS_Store
 
-
+.venv
 
 german_nouns/nouns_index.txt

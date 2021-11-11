@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "german_nouns"
+version = "0.2.0"
+description = "A list of ~ 90,000 German nouns and their grammatical properties compiled from WiktionaryDE as CSV file. Plus some methods to query the data."
+authors = ["Gregor Weichbrodt <gregorweichbrodt@gmail.com>"]
+license = "Apache License 2.0"
+readme = "README.md"
+homepage = "https://github.com/gambolputty/german_nouns"
+repository = "https://github.com/gambolputty/german_nouns"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+bz2file = "^0.98"
+wiktionary-de-parser = "0.8.2"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

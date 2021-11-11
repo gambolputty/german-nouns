@@ -12,6 +12,15 @@
       "cwd": "${workspaceFolder}/german_nouns",
       // "args": ["crawl"],
       "internalConsoleOptions": "openOnFirstSessionStart"
+    },
+    {
+      "name": "Parse dump",
+      "type": "python",
+      "request": "launch",
+      "module": "german_nouns.parse_dump",
+      // "cwd": "${workspaceFolder}/german_nouns",
+      "args": ["/mnt/c/Users/gregor/Downloads/dewiktionary-latest-pages-articles-multistream.xml.bz2"],
+      // "internalConsoleOptions": "openOnFirstSessionStart"
     }
   ]
 }

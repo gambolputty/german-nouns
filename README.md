@@ -1,25 +1,30 @@
 # German nouns
-A comma seperated list of ~ 90 thousand German nouns and their grammatical properties (*tense, number, gender*) as CSV file. Plus some methods to query the data.
+
+A comma seperated list of ~ 90 thousand German nouns and their grammatical properties (_tense, number, gender_) as CSV file. Plus some methods to query the data.
 
 The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 
 ## Usage
 
 ### Clone repository and install requirements
+
 ```shell
 git clone https://github.com/gambolputty/german_nouns
 bash setup.sh
 ```
 
 ### Create CSV file from Wiktionary dump
+
 Data is saved in [german_nouns/nouns.csv](/german_nouns/nouns.csv).
+
 ```shell
-cd german_nouns
-python -m create_csv /path-to-dump-file/dewiktionary-latest-pages-articles-multistream.xml.bz2
+python -m german_nouns.parse_dump /path-to-dump-file/dewiktionary-latest-pages-articles-multistream.xml.bz2
 ```
 
 ### Query the CSV file
+
 All examples in [here](/german_nouns/query/__main__.py) (command: `cd german_nouns && python -m query`):
+
 ```python
 from query.NounDictionary import NounDictionary
 
