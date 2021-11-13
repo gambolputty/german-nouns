@@ -61,7 +61,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "wiktionary-de-parser"
-version = "0.8.2"
+version = "0.8.8"
 description = "Extracts data from German Wiktionary dump files. Allows you to add your own extraction methods 🚀"
 category = "main"
 optional = false
@@ -74,7 +74,7 @@ pyphen = ">=0.11.0,<0.12.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "73ea561437076cf83f4dc037cbbfab395e3226fda797de356e546bdfb9370abf"
+content-hash = "b18d640f65a48327c739854be00f693b62ed5889358dbc404e42778064a7b85c"
 
 [metadata.files]
 autopep8 = [
@@ -159,6 +159,6 @@ toml = [
     {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
 ]
 wiktionary-de-parser = [
-    {file = "wiktionary_de_parser-0.8.2-py3-none-any.whl", hash = "sha256:95a35e4f37bb0319259621521a2e7bcc5eaaefc78bfde934054588937393d112"},
-    {file = "wiktionary_de_parser-0.8.2.tar.gz", hash = "sha256:e69fd74da361272296280df38ee2159f6fc58ff933e2463c176617447e049838"},
+    {file = "wiktionary_de_parser-0.8.8-py3-none-any.whl", hash = "sha256:ff3704009a4a6d1966e7eab20c50d233c5749c0d0a747c5641e90176637e4bac"},
+    {file = "wiktionary_de_parser-0.8.8.tar.gz", hash = "sha256:82ae4e44674859c25a81b2476360a29eebad0ba7c5ca96e98f2cb6f01094c536"},
 ]

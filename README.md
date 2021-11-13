@@ -4,14 +4,13 @@ A comma seperated list of ~98 thousand German nouns and their grammatical proper
 
 The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 
-## Requirements
+To compile it yourself, go through the following steps:
 
-- 3.8+
-- [Poetry](https://python-poetry.org/)
+## Compiling the list
 
-## Usage
+You need Python 3.8+ and [Poetry](https://python-poetry.org/) installed.
 
-1. Clone the repository and install dependencies with [Poetry](https://python-poetry.org/):
+### 1. Clone the repository and install dependencies with [Poetry](https://python-poetry.org/):
 
 ```shell
 >> git clone https://github.com/gambolputty/german_nouns
@@ -19,19 +18,19 @@ The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 >> poetry install
 ```
 
-2. Compile the list of nouns from a Wiktionary XML file:
+### 2. Compile the list of nouns from a Wiktionary XML file:
 
 Find the latest XML-dump files here: [https://dumps.wikimedia.org/dewiktionary/latest](https://dumps.wikimedia.org/dewiktionary/latest), for example [this one](https://dumps.wikimedia.org/dewiktionary/latest/dewiktionary-latest-pages-articles-multistream.xml.bz2) and download it. Then execute:
 
 ```shell
->> python -m german_nouns.parse_dump /path-to-xml-dump-file.xml.bz2
+>> poetry run python -m german_nouns.parse_dump /path-to-xml-dump-file.xml.bz2
 ```
 
 The CSV file will be saved here: [german_nouns/nouns.csv](/german_nouns/nouns.csv).
 
-### Query the CSV file
+## Query the CSV file
 
-All examples in [here](/german_nouns/query/__main__.py) (command: `cd german_nouns && python -m query`):
+All examples in [here](/german_nouns/query/__main__.py)
 
 ```python
 from query.NounDictionary import NounDictionary
