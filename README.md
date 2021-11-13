@@ -2,7 +2,13 @@
 
 A comma seperated list of ~98 thousand German nouns and their grammatical properties (_tense, number, gender_) as CSV file. Plus a module to look up the data and parse compound words. Compiled from the [WiktionaryDE](https://de.wiktionary.org).
 
-The list can be found here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
+The list can be found here: [german_nouns/nouns.csv](https://github.com/gambolputty/german-nouns/blob/main/german_nouns/nouns.csv)
+
+If you want to look up nouns or parse compound words, install this package (for Python 3.8+) and follow the instructions below:
+
+## Installation
+
+`pip install german-nouns`
 
 ## Lookup words
 
@@ -59,7 +65,7 @@ Find the latest XML-dump files here: [https://dumps.wikimedia.org/dewiktionary/l
 $ poetry run python -m german_nouns.parse_dump /path-to-xml-dump-file.xml.bz2
 ```
 
-The CSV file will be saved here: [german_nouns/nouns.csv](/german_nouns/nouns.csv).
+The CSV file will be saved here: [german_nouns/nouns.csv](https://github.com/gambolputty/german-nouns/blob/main/german_nouns/nouns.csv).
 
 
 ----
