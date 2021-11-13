@@ -2,6 +2,9 @@ import pytest
 
 from german_nouns.lookup import Nouns
 
+# TODO: https://de.wiktionary.org/wiki/Verzeichnis:Deutsch/Komposita_mit_%C3%9Cberl%C3%A4nge
+# "Donaudampfschifffahrtsgesellschaftskapitän" -> ['Donaudampfschifffahrtsgesellschaft', 'Kapitän'] :/
+
 test_wordss = [
     ('Faktencheck', [{'flexion': {'nominativ singular': 'Faktencheck',
                                   'nominativ plural': 'Faktenchecks',
