@@ -4,8 +4,9 @@ A comma seperated list of ~98 thousand German nouns and their grammatical proper
 
 The list can be found here: [german_nouns/nouns.csv](https://github.com/gambolputty/german-nouns/blob/main/german_nouns/nouns.csv)
 
-## Installation
 If you want to look up nouns or parse compound words, install this package (for Python 3.8+) and follow the instructions below:
+
+## Installation
 
 `pip install german-nouns`
 
