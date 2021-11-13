@@ -64,4 +64,4 @@ The CSV file will be saved here: [german_nouns/nouns.csv](/german_nouns/nouns.cs
 
 ----
 
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
