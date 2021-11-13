@@ -5,13 +5,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Query",
+      "name": "Lookup",
       "type": "python",
       "request": "launch",
-      "module": "query",
-      "cwd": "${workspaceFolder}/german_nouns",
-      // "args": ["crawl"],
-      "internalConsoleOptions": "openOnFirstSessionStart"
+      "module": "german_nouns.lookup.examples",
+    },
+    {
+      "name": "Parse dump",
+      "type": "python",
+      "request": "launch",
+      "module": "german_nouns.parse_dump",
+      "args": ["/Users/gregor/Downloads/dewiktionary-latest-pages-articles-multistream.xml.bz2"],
     }
   ]
 }

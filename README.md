@@ -1,33 +1,21 @@
 # German nouns
-A comma seperated list of ~ 90 thousand German nouns and their grammatical properties (*tense, number, gender*) as CSV file. Plus some methods to query the data.
 
-The list is located here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
+A comma seperated list of ~98 thousand German nouns and their grammatical properties (_tense, number, gender_) as CSV file. Plus a module to look up the data and parse compound words. Compiled from the [WiktionaryDE](https://de.wiktionary.org).
 
-## Usage
+The list can be found here: [german_nouns/nouns.csv](/german_nouns/nouns.csv)
 
-### Clone repository and install requirements
-```shell
-git clone https://github.com/gambolputty/german_nouns
-bash setup.sh
-```
+## Lookup words
 
-### Create CSV file from Wiktionary dump
-Data is saved in [german_nouns/nouns.csv](/german_nouns/nouns.csv).
-```shell
-cd german_nouns
-python -m create_csv /path-to-dump-file/dewiktionary-latest-pages-articles-multistream.xml.bz2
-```
-
-### Query the CSV file
-All examples in [here](/german_nouns/query/__main__.py) (command: `cd german_nouns && python -m query`):
 ```python
-from query.NounDictionary import NounDictionary
+from pprint import pprint
+from german_nouns.lookup import Nouns
 
-nouns = NounDictionary('../nouns.csv')
+nouns = Nouns()
 
 # Lookup a word
-word_entry = nouns['Fahrrad']
-pprint(word_entry)
+word = nouns['Fahrrad']
+pprint(word)
+
 # Output:
 [{'flexion': {'akkusativ plural': 'Fahrräder',
               'akkusativ singular': 'Fahrrad',
@@ -43,31 +31,37 @@ pprint(word_entry)
   'lemma': 'Fahrrad',
   'pos': ['Substantiv']}]
 
-# get the last word of a compound
-last_word = nouns.last_word('Falkenstein')
-print(last_word)
-# Output:
-[{'flexion': {'akkusativ plural': 'Steine',
-              'akkusativ singular': 'Stein',
-              'dativ plural': 'Steinen',
-              'dativ singular': 'Stein',
-              'dativ singular*': 'Steine',
-              'genitiv plural': 'Steine',
-              'genitiv singular': 'Steins',
-              'genitiv singular*': 'Steines',
-              'nominativ plural': 'Steine',
-              'nominativ singular': 'Stein'},
-  'genus': 'm',
-  'lemma': 'Stein',
-  'pos': ['Substantiv']}
-
 # parse compound word
-compound_words = nouns.parse_compound('Vermögensbildung')
-print(compound_words)
+words = nouns.parse_compound('Vermögensbildung')
+print(words)
+
 # Output:
-['vermögen', 'bildung'] # Lookup the words: nouns['vermögen'] etc.
+['Vermögen', 'Bildung'] # Now lookup nouns['Vermögen'] etc.
 ```
 
-List compiled from [WiktionaryDE](https://de.wiktionary.org) with [wiktionary_de_parser](https://github.com/gambolputty/wiktionary_de_parser).
+## Compiling the list
+
+To compile the list yourself, you need Python 3.8+ and [Poetry](https://python-poetry.org/) installed.
+
+### 1. Clone the repository and install dependencies with [Poetry](https://python-poetry.org/):
+
+```shell
+$ git clone https://github.com/gambolputty/german-nouns
+$ cd german-nouns
+$ poetry install
+```
+
+### 2. Compile the list of nouns from a Wiktionary XML file:
+
+Find the latest XML-dump files here: [https://dumps.wikimedia.org/dewiktionary/latest](https://dumps.wikimedia.org/dewiktionary/latest), for example [this one](https://dumps.wikimedia.org/dewiktionary/latest/dewiktionary-latest-pages-articles-multistream.xml.bz2) and download it. Then execute:
+
+```shell
+$ poetry run python -m german_nouns.parse_dump /path-to-xml-dump-file.xml.bz2
+```
+
+The CSV file will be saved here: [german_nouns/nouns.csv](/german_nouns/nouns.csv).
+
+
+----
 
 License: [Creative Commons Attribution-ShareAlike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/deed.en).

@@ -1,7 +1,8 @@
 *.pyc
 __pycache__/
 .DS_Store
+.pytest_cache
 
-
+.venv
 
 german_nouns/nouns_index.txt
