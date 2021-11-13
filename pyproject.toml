@@ -7,7 +7,7 @@ license = "CC BY-SA 4.0"
 readme = "README.md"
 homepage = "https://github.com/gambolputty/german-nouns"
 repository = "https://github.com/gambolputty/german-nouns"
-keywords = ["german", "nouns", "compound words", "lookup", "wiktionary", "nlp"]
+keywords = ["german", "nouns", "words", "compound words", "lookup", "wiktionary", "nlp"]
 classifiers = [
     "Programming Language :: Python :: 3.8",
     "License :: Other/Proprietary License",
