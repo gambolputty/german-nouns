@@ -5,10 +5,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Query",
+      "name": "Lookup",
       "type": "python",
       "request": "launch",
-      "module": "german_nouns.query.examples",
+      "module": "german_nouns.lookup.examples",
     },
     {
       "name": "Parse dump",
