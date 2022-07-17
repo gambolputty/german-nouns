@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "german-nouns"
-version = "1.2.3"
+version = "1.2.4"
 description = "A list of ~100,000 German nouns and their grammatical properties compiled from WiktionaryDE as CSV file. Plus a module to look up the data and parse compound words."
 authors = ["Gregor Weichbrodt <gregorweichbrodt@gmail.com>"]
 license = "CC BY-SA 4.0"
@@ -22,7 +22,7 @@ include = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-wiktionary-de-parser = "^0.9.0"
+wiktionary-de-parser = "^0.9.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

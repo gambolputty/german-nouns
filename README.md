@@ -67,6 +67,8 @@ $ poetry run python -m german_nouns.parse_dump /path-to-xml-dump-file.xml.bz2
 
 The CSV file will be saved here: [german_nouns/nouns.csv](https://github.com/gambolputty/german-nouns/blob/main/german_nouns/nouns.csv).
 
+Remove `german_nouns/index.txt` to let the script recreate the word-index when using the lookup methods.
+
 
 ----
 

@@ -208,7 +208,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "wiktionary-de-parser"
-version = "0.9.1"
+version = "0.9.2"
 description = "Extracts data from German Wiktionary dump files. Allows you to add your own extraction methods 🚀"
 category = "main"
 optional = false
@@ -221,7 +221,7 @@ mwparserfromhell = ">=0.6.4,<0.7.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "ad2f365afb6f37961333925cdc496893364c3afc7048ff585d9437800be2828b"
+content-hash = "562787b76fab048d22272f2659954773a5b157d9d559d40e4e94a83463ae9cb6"
 
 [metadata.files]
 atomicwrites = []

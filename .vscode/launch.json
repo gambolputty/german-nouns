@@ -15,7 +15,9 @@
       "type": "python",
       "request": "launch",
       "module": "german_nouns.parse_dump",
-      "args": ["/Users/gregor/Downloads/dewiktionary-latest-pages-articles-multistream.xml.bz2"],
+      "args": [
+        "/Users/gregor/Downloads/dewiktionary-latest-pages-articles-multistream.xml.bz2"
+      ],
     }
   ]
 }
