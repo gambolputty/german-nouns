@@ -50,7 +50,7 @@ test_words = [
     ),
     (
         "Heidelberg",
-        [{"flexion": {}, "lemma": "Heidelberg", "pos": ["Toponym", "Substantiv"]}],
+        [{"flexion": {}, "lemma": "Heidelberg", "pos": ["Substantiv", "Toponym"]}],
     ),
 ]
 

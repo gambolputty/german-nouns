@@ -111,7 +111,7 @@ def create_csv_row(record):
             pos.add(key)
             if value:
                 pos.update(value)
-        pos = list(pos)
+        pos = sorted(list(pos))
         record["pos"] = ",".join(pos)
 
     for col_name in header:
