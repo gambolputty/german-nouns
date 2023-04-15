@@ -20,7 +20,8 @@ class WordSlice(TypedDict):
 class Nouns(object):
     def __init__(self) -> None:
         # parse csv file
-        data = list(csv.reader(open(CSV_FILE_PATH)))
+        with open(CSV_FILE_PATH) as f:
+            data = list(csv.reader(f))
         self.header = data[0]
         self.data = data[1:]
 
