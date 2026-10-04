@@ -12,7 +12,7 @@ from german_nouns.parse_dump.extend_flexion import extend_flexion
 
 # make sure your system supports this locale
 # see: https://stackoverflow.com/a/36257050/5732518
-locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
+locale.setlocale(locale.LC_ALL, "C.UTF-8")
 
 if len(sys.argv) <= 1:
     print("Please provide a path to the Wiktionary XML-Dump file")

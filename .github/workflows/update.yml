@@ -1,0 +1,54 @@
+name: Update the list of nouns
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Runs at 00:00 every Sunday
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="$HOME/.local/bin:$PATH"
+
+      - name: Install dependencies
+        run: |
+          poetry install
+          
+      - name: Download dewiktionary
+        env:
+          URL: https://dumps.wikimedia.org/dewiktionary/latest/dewiktionary-latest-pages-articles-multistream.xml.bz2
+        run: |
+          curl -o dewiktionary "$URL"
+  
+      - name: Update the list of nouns
+        run: |
+          poetry run python -m german_nouns.parse_dump ./dewiktionary
+
+      - name: Commit and push changes in the list of nouns
+        if: github.ref_name == 'main'
+        env:
+          NOUNS_PATH: german_nouns/nouns.csv
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          git add "$NOUNS_PATH"
+          if ! git diff --cached --quiet; then
+            git commit -m "Updated $NOUNS_PATH"
+            git push
+          else
+            echo "No changes detected, skipping commit."
+          fi
